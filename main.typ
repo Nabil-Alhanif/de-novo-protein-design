@@ -15,6 +15,7 @@
 // --- Layout Helpers ---
 #let check = $ballot.check$
 #let uncert = $plus.minus$
+#let angstrom = "Å"
 
 #let pm = $plus.minus$
 
@@ -142,7 +143,52 @@ To achieve this overall goal, the following steps & algorithms are followed:
 3. Use ProteinMPNN to predict the amino acid structure.
 4. Use AlphaFold to verify everything.
 
+#pagebreak()
 = Isolate Interacting Area in PyMOL
+As we know that the protein only has 2 chains (A & B), we can delete the other 7 small molecules.
+
+#figure(
+    image("Assets/6M0J Chain Only.png", width: 50%),
+    caption: [6M0J, showing only chains],
+) <fig-6m0j-chain-only>
+
+Now, to get the binding area, we will select all residues in protein B (spike protein) within 5 $angstrom$ from protein A (binding protein). By doing this, we can find residues in B that is interacting with A, and thus we can generate a new protein that will interact with this residue from B. Therefore, generating a new protein that behaves similarly to A, the current biding protein.
+
+```python
+select interface, byres (chain E within 5 of chain A)
+residues = set([res.resi for res in cmd.get_model("interface").atom])
+print("Residue indices:", sorted(residues))
+```
+
+Note that while the spike protein is chain B, it is authenticated as chain E in PyMOL.
+
+
+#figure(
+    image("Assets/fig-6m0j-binding-b.png", width: 50%),
+    caption: [6M0J, residues of B within 5 $angstrom$ of A highlighted in red],
+) <fig-fig-6m0j-binding-b>
+
+The resulting residues are:
+
+```python
+Residue indices: ['283', '286', '417', '446', '447', '449', '453', '455', '456', '473', '475', '476', '484', '486', '487', '489', '493', '496', '498', '500', '501', '502', '505']
+```
+
+When porting to RFDiffusion, the indices have to be formatted as A283,A286 etc. Of course, doing that manually will take a while (I mean, it's likely faster than the time I spent writing this and writing the code, but cmon, we're programmer, we're here to automate stuff). So, of course, we'll use a short python command to format it!
+
+```python
+fmt = ','.join(["A" + res for res in residues])
+print(fmt)
+```
+
+Giving:
+
+A489,A496,A476,A500,A456,A486,A484,A493,A417,A453,A498,A283,A447,A286,A505,A473,
+A475,A455,A487,A501,A446,A449,A502
+
+Also, I'm doing this the old-school way: by hand + stackoverflow, just because. Overflow resources used: @AppendingSameString @PythonJoinString.
+
+Finally, we save the file.
 
 = Generate Potential Structure in RFDiffusion
 
@@ -150,12 +196,10 @@ To achieve this overall goal, the following steps & algorithms are followed:
 
 = Verification in AlphaFold
 
-/*
 #pagebreak()
 #show bibliography: set block(above: 2em)
 #show bibliography: set heading(numbering: "1")
 #bibliography("references.bib")
-*/
 
 /*
 // --- Transition to Appendices ---
