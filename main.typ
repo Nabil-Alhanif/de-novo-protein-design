@@ -275,7 +275,7 @@ Now that we have the new PDB file, time to use #link("https://build.nvidia.com/i
     caption: [Setup for ProteinMPNN],
 ) <fig-proteinmpnn-nvidia-setup>
 
-The full output is available in proteinmpnn.json.
+The full output is available in #link("https://github.com/Nabil-Alhanif/de-novo-protein-design/blob/master/ProteinMPNN%20Output/proteinmpnn.json")[proteinmpnn.json].
 
 Amino acid sequence of new binding protein:
 
