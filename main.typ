@@ -127,7 +127,7 @@
 
 #pagebreak()
 = Introduction
-In this assignment, my target is to design potential protein binder for the #link("https://www.rcsb.org/structure/6M0J")[*COVID-19 Spike Protein, 6M0J*].
+In this assignment, my target is to design potential protein binder for the #link("https://www.rcsb.org/structure/6M0J")[*COVID-19 Spike Protein, 6M0J*]. As usual, all related files and codes are posted through Github: https://github.com/Nabil-Alhanif/de-novo-protein-design.git
 
 The COVID-19 Spike Protein contains two chains, A and B (auth E), with 7 small molecules. The full structure is shown below in @fig-6m0j-original.
 
