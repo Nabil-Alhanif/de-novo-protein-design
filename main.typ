@@ -299,7 +299,7 @@ Finally, we'll verify the shape of this newly-minted protein through #link("http
 #pagebreak()
 == AlphaFold Result Discussion
 
-In total, AlphaFold produced 5 potential protein structure.
+In total, AlphaFold produced #link("https://github.com/Nabil-Alhanif/de-novo-protein-design/tree/master/AlphaFold%20Output")[5 potential protein structure].
 
 #figure(
     image("Assets/6m0j and alphafold all results.png", width: 100%),
