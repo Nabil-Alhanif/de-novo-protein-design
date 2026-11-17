@@ -188,7 +188,7 @@ A475,A455,A487,A501,A446,A449,A502
 
 Also, I'm doing this the old-school way: by hand + stackoverflow, just because. Overflow resources used: @AppendingSameString @PythonJoinString.
 
-Finally, we save the file.
+Finally, we save the file: https://github.com/Nabil-Alhanif/de-novo-protein-design/blob/master/PyMOL%20Files/6M0J%20to%20RFDiffusion.pdb
 
 = Generate Potential Structure in RFDiffusion
 
