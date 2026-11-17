@@ -129,20 +129,33 @@
 = Introduction
 In this assignment, my target is to design potential protein binder for the #link("https://www.rcsb.org/structure/6M0J")[*COVID-19 Spike Protein, 6M0J*]. As usual, all related files and codes are posted through Github: https://github.com/Nabil-Alhanif/de-novo-protein-design.git
 
-The COVID-19 Spike Protein contains two chains, A and B (auth E), with 7 small molecules. The full structure is shown below in @fig-6m0j-original.
+The COVID-19 Spike Protein contains two chains, A and B (auth E), with 7 small molecules. The full structure is shown below in @fig-6m0j-original. Protein A is Angiotensin-converting enzyme 2, while protein B is the Spike protein S1. Therefore, the new protein designed here should be able to bind to protein B.
 
 #figure(
     image("Assets/6M0J Original.png", width: 50%),
     caption: [COVID-19 Spike Protein, 6M0J. Chain A is coloured blue, while Chain B is coloured magenta.],
 ) <fig-6m0j-original>
 
-=
+To achieve this overall goal, the following steps & algorithms are followed:
+1. Isolate interacting area between protein A & B.
+2. Use RFDiffusion to predict protein structure that can bind (interact) with this area in protein B.
+3. Use ProteinMPNN to predict the amino acid structure.
+4. Use AlphaFold to verify everything.
 
+= Isolate Interacting Area in PyMOL
 
+= Generate Potential Structure in RFDiffusion
+
+= Generate Potential Amino Acid in ProteinMPNN
+
+= Verification in AlphaFold
+
+/*
 #pagebreak()
 #show bibliography: set block(above: 2em)
 #show bibliography: set heading(numbering: "1")
 #bibliography("references.bib")
+*/
 
 /*
 // --- Transition to Appendices ---
