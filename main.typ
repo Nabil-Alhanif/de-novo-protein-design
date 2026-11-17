@@ -192,7 +192,17 @@ Finally, we save the file: https://github.com/Nabil-Alhanif/de-novo-protein-desi
 
 #pagebreak()
 = Generate Potential Structure in RFDiffusion
-Now that we have all interacting residues, time to post this to RFDiffusion.
+Now that we have all interacting residues, time to post this to RFDiffusion. From PyMOL, Chain E is numbered 333 to 526. For the target protein length, we'll do 50 - 100, just like the class sample.
+#figure(
+    image("Assets/rfdiffusion-nvidia-setup.png", width: 80%),
+    caption: [RFDiffusion Input in NVIDIA IPC],
+) <fig-rfdiffusion-nvidia-setup>
+
+The resulting output is saved as either JSON or TXT (ASCII).
+
+#pagebreak()
+== Making the PDB File
+In class, we created the PDB file using Gen AI. Personally, I'm not a big fan; I've had experience of AI changing values when I asked it to parse a table screenshot into an actual table. So, we're gonna use python once more!
 
 = Generate Potential Amino Acid in ProteinMPNN
 
