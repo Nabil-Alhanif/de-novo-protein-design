@@ -194,7 +194,7 @@ Finally, we save the file: https://github.com/Nabil-Alhanif/de-novo-protein-desi
 
 #pagebreak()
 = Generate Potential Structure in RFDiffusion
-Now that we have all interacting residues, time to post this to RFDiffusion. From PyMOL, Chain E is numbered 333 to 526. For the target protein length, we'll do 50 - 100, just like the class sample.
+Now that we have all interacting residues, time to post this to #link("https://build.nvidia.com/ipd/rfdiffusion?snippet_tab=Try")[RFDiffusion]. From PyMOL, Chain E is numbered 333 to 526. For the target protein length, we'll do 50 - 100, just like the class sample.
 #figure(
     image("Assets/rfdiffusion-nvidia-setup.png", width: 80%),
     caption: [RFDiffusion Input in NVIDIA IPC],
@@ -267,7 +267,21 @@ Note that #link("https://github.com/Nabil-Alhanif/de-novo-protein-design/blob/ma
 
 #pagebreak()
 = Generate Potential Amino Acid in ProteinMPNN
+Now that we have the new PDB file, time to use #link("https://build.nvidia.com/ipd/proteinmpnn?snippet_tab=Try")[ProteinMPNN] to predict the amino acid structure. Here, I set sampling temperature as 0.28 as the recommended range is 0.1 - 0.3.
 
+
+#figure(
+    image("Assets/proteinmpnn-nvidia-setup.png", width: 80%),
+    caption: [Setup for ProteinMPNN],
+) <fig-proteinmpnn-nvidia-setup>
+
+The full output is available in proteinmpnn.json.
+
+Amino acid sequence of new binding protein:
+
+SLEKAKKILEELAKEGSEEAKEILKMSDDVRKRKGEEIEEERKREEYKKLKEELEKKIKELTEKIKKLKKEGGSEEEIKKLEEEKEKAEKILKEIEKE
+
+#pagebreak()
 = Verification in AlphaFold
 
 #pagebreak()
