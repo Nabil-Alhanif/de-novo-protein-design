@@ -190,7 +190,7 @@ E500,E501,E502,E505
 
 Also, I'm doing this the old-school way: by hand + stackoverflow, just because. Overflow resources used: @AppendingSameString @PythonJoinString.
 
-Finally, we save the file: https://github.com/Nabil-Alhanif/de-novo-protein-design/blob/master/PyMOL%20Files/6M0J%20to%20RFDiffusion.pdb
+Finally, we save the file as #link("https://github.com/Nabil-Alhanif/de-novo-protein-design/blob/master/PyMOL%20Files/6M0J%20to%20RFDiffusion.pdb")[6M0J to RFDiffusion.pdb]
 
 #pagebreak()
 = Generate Potential Structure in RFDiffusion
@@ -283,6 +283,32 @@ SLEKAKKILEELAKEGSEEAKEILKMSDDVRKRKGEEIEEERKREEYKKLKEELEKKIKELTEKIKKLKKEGGSEEEIKK
 
 #pagebreak()
 = Verification in AlphaFold
+Finally, we'll verify the shape of this newly-minted protein through #link("https://alphafoldserver.com/")[AlphaFold].
+
+#figure(
+    image("Assets/alphafold-setup.png", width: 100%),
+    caption: [Top protein: De-novo biniding protein. Bottom protein: Original spike protein],
+) <fig-alphafold-setup>
+
+
+#figure(
+    image("Assets/alphafold-result.png", width: 100%),
+    caption: [Structure prediction result from AlphaFold. Note the high confidence level for most amino acids.],
+) <fig-alphafold-result>
+
+#pagebreak()
+== AlphaFold Result Discussion
+
+In total, AlphaFold produced 5 potential protein structure.
+
+#figure(
+    image("Assets/6m0j and alphafold all results.png", width: 100%),
+    caption: [All generated alphafold structure overlapped. Yellow chain is the predicted structure from RFDiffusion; all other coils are from AlphaFold.],
+)<fig-alphafold-full>
+
+As all 5 AlphaFold results are similar, the structure shown in @fig-alphafold-result is assumed to be representative of the output. From @fig-alphafold-result, it can be seen that most amino acids are coloured dark blue or light blue, signifying a good confidence level. While there are some yellows, the amount is miniaml and it seems to be located in the extremities, and shouldn't affect the binding too much.
+
+Conclusion: *Good confidence level!*.
 
 #pagebreak()
 #show bibliography: set block(above: 2em)
