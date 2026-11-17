@@ -171,26 +171,28 @@ Note that while the spike protein is chain B, it is authenticated as chain E in 
 The resulting residues are:
 
 ```python
-Residue indices: ['283', '286', '417', '446', '447', '449', '453', '455', '456', '473', '475', '476', '484', '486', '487', '489', '493', '496', '498', '500', '501', '502', '505']
+Residue indices: ['417', '446', '447', '449', '453', '455', '456', '473', '475', '476', '484', '486', '487', '489', '493', '496', '498', '500', '501', '502', '505']
 ```
 
 When porting to RFDiffusion, the indices have to be formatted as A283,A286 etc. Of course, doing that manually will take a while (I mean, it's likely faster than the time I spent writing this and writing the code, but cmon, we're programmer, we're here to automate stuff). So, of course, we'll use a short python command to format it!
 
 ```python
-fmt = ','.join(["A" + res for res in residues])
+fmt = ','.join(["E" + res for res in sorted(residues)])
 print(fmt)
 ```
 
 Giving:
 
-A489,A496,A476,A500,A456,A486,A484,A493,A417,A453,A498,A283,A447,A286,A505,A473,
-A475,A455,A487,A501,A446,A449,A502
+E417,E446,E447,E449,E453,E455,E456,E473,E475,E476,E484,E486,E487,E489,E493,E496,E498,
+E500,E501,E502,E505
 
 Also, I'm doing this the old-school way: by hand + stackoverflow, just because. Overflow resources used: @AppendingSameString @PythonJoinString.
 
 Finally, we save the file: https://github.com/Nabil-Alhanif/de-novo-protein-design/blob/master/PyMOL%20Files/6M0J%20to%20RFDiffusion.pdb
 
+#pagebreak()
 = Generate Potential Structure in RFDiffusion
+Now that we have all interacting residues, time to post this to RFDiffusion.
 
 = Generate Potential Amino Acid in ProteinMPNN
 
